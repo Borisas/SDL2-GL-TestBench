@@ -3,6 +3,8 @@
 #include "SDL2/SDL_opengl.h"
 #include "SDL2/SDL_image.h"
 
+#include "Draw.h"
+
 bool update( int dt ) {
 
 	return true;
@@ -10,6 +12,7 @@ bool update( int dt ) {
 
 void draw() {
 
+	SDLDraw::Rectangle(100,100,200,200);
 }
 
 int main ( int agrc, char ** argv ) {
@@ -53,6 +56,10 @@ int main ( int agrc, char ** argv ) {
 	glOrtho(0,800,600,0,-1,1);
 
 	while ( gameloop ) {
+    
+    glClearColor(0,0,0,1);
+		glClear(GL_COLOR_BUFFER_BIT);
+		
 
 		SDL_Event e;
 		while ( SDL_PollEvent(&e) ) {
@@ -64,9 +71,7 @@ int main ( int agrc, char ** argv ) {
 		update(delta);
 		draw();
 
-		glClearColor(0,0,0,1);
-		glClear(GL_COLOR_BUFFER_BIT);
-		SDL_GL_SwapWindow(window);
+	  SDL_GL_SwapWindow(window);
 
 		auto currentframe = SDL_GetTicks();
 
