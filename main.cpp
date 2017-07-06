@@ -11,8 +11,7 @@ bool update( int dt ) {
 }
 
 void draw() {
-
-	SDLDraw::Rectangle(100,100,200,200);
+	
 }
 
 int main ( int agrc, char ** argv ) {
